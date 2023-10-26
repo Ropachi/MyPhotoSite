@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+body{
+    background:#f0f0f0;
+    font-family:'Baskervville', serif,"游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
+	color: #333;
+	font-size:1rem;
+	line-height:1.85;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%; 
+	word-wrap: break-word;
+}
+@media screen and (max-width:768px) {
+body{
+	font-size:0.8rem;
+	}
+}
+ul{
+	margin:0;
+	padding: 0;
+	list-style: none;
+}
+a{
+	color: #fff;
+    outline: none;
+}
+a:hover,
+a:active{
+	text-decoration: none;
+}
+
+/* heading */
+.heading-block{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    text-align: center;
+}
+.heading-block h1,
+h2{
+    font-family: 'La Belle Aurore', cursive;
+    font-weight: normal;
+    font-size:6vw;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    color: #fff;
+}
+.heading-block p{
+    font-size:1.6vw;
+    letter-spacing: 0.5em;
+}
+#box3 h2{
+    color: #fff;
+}
+
+/* profile-area*/
+.profile-area{
+    width:100%;
+    max-width: 300px;
+    background:rgba(255,255,255,0.8);
+    padding:40px;
+    margin: 300px 0 0 40px;
+    text-align: left;
+    letter-spacing: 0.03em;
+
+}
+@media screen and (max-width:768px) {
+    .profile-area{
+        margin:0;
+    }
+}
+.profile-area h2{
+    font-size: 1.0rem;
+    margin:0 0 40px 0;
+    line-height: 1.8;
+    color: #333;
+    font-family: 'Baskervville', serif;
+    text-align: center;
+}
+.profile-area h2 span{
+    font-size: 1.3rem;
+    display: block;
+    text-transform: uppercase;
+}
+.profile-area p{
+    margin:0 0 40px 0;
+}
+
+/* Copyright */
+small{
+    position: fixed;
+    bottom: 5px;
+    color: #f8e2e2;
+    letter-spacing: 0.1em;
+    line-height: 1;
+}
+footer {
+    position: absolute;
+    left: 50%;
+}
+@media only screen and (max-width:768px) {
+    .heading-block h1,
+    h2{
+        font-size:4em;
+        line-height: 1.5;
+    }
+    .heading-block p{
+        font-size:1.5em;
+        letter-spacing: 0.2em;
+    }
+}

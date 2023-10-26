@@ -1,0 +1,234 @@
+@charset "utf-8";
+
+/* Loading背景画面設定　*/
+#splash {
+    /*fixedで全面に固定*/
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 99999;
+	text-align:center;
+	color:#fff;
+}
+
+/* Loading画像中央配置　*/
+#splash_text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+    z-index: 999;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	width: 100%;
+}
+
+/* グラデーションで線から塗に変化させる */
+.gradient4{
+    /*ボタン形状*/
+    display: inline-block;
+    padding: 10px 60px;
+    margin: 20px 0 0 0;
+    border-radius:20px;
+    text-decoration: none;
+    border:1px solid #fff;
+    color: #fff;
+    /*アニメーション指定*/
+    transition: all 0.4s ease-out;
+}
+#box3 .gradient4{
+	/*カラー設定*/
+    color: #925410;
+    border-color: #925410;
+}
+
+/* hover設定でグラデーションと影 */
+.gradient4:hover,
+#box3 .gradient4:hover{
+    /*ボタン形状*/
+    border-color:transparent;
+    color: #fff;
+    /*背景の色・形状*/
+    background: linear-gradient(270deg, rgba(236, 100, 100, 0.4) 50%, rgba(223, 40, 40, 0.91) 100%);
+    background-size: 200% auto;
+    background-position: right center;
+    /* ボックスに影設定 */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.41);
+}
+
+/* ズームアウト設定 */
+#slider {
+    width: 100%;
+    height: 100vh;/*スライダー全体の縦幅を画面の高さにする*/
+}
+
+/* リンクをクリック-> 背景を暗くし動画や画像やテキスト表示 */
+.modaal-overlay{
+     background: linear-gradient(45deg,rgba(88,182,211,.9),rgba(229,93,135,.9))!important;
+}
+
+/* モーダル表示をする場所を隠しておく */
+.hide-area{
+	display: none;
+}
+/* full画面の色設定*/
+.modaal-fullscreen .modaal-content-container{
+     background: linear-gradient(45deg,rgba(88,182,211,.9),rgba(229,93,135,.9));
+	color: #fff;
+	text-align: center;
+}
+/* ボタンの色、位置設定 */
+.modaal-fullscreen .modaal-close{
+	background:none;
+	right:20px;
+}
+
+/* クローズボタン× の色変更 */
+.modaal-close:focus:after,
+.modaal-close:focus:before,
+.modaal-close:hover:after,
+.modaal-close:hover:before{
+	background:rgba(223, 40, 40, 0.91);
+}
+
+/* キャプション */
+.caption{
+    display: block;
+    padding: 5px 0;
+}
+
+/* レスポンシブ対応: 画像の横幅を100%にする */
+.modaal-content-container img{
+    border: 5px solid #fff;
+    width:100%;
+	max-width:700px;
+	height:auto;
+	vertical-align: bottom;
+}
+
+/*ぼかしから出現させる */
+.blur{
+	animation-name: blurAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+}
+@keyframes blurAnime{
+  from {
+	filter: blur(10px);
+	transform: scale(1.02);
+	opacity: 0;
+  }
+  to {
+	filter: blur(0);
+	transform: scale(1);
+	opacity: 1;
+  }
+}
+
+/* スクロールしたら出現する要素をスタート透過ゼロに指定　*/
+.blurTrigger{
+    opacity: 50;
+}
+
+/* テキスト1文字づつ表示*/
+.eachTextAnime span{opacity: 0;}
+.eachTextAnime.appeartext span{ animation:text_anime_on 1s ease-out forwards; }
+@keyframes text_anime_on {
+	0% {opacity:0;}
+	100% {opacity:1;}
+}
+/* スクロール->1画面移動*/
+.box{
+    padding: 40px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+/* メイン頁の設定 */
+#box1{
+    background:url("../img/Nihoinbashi.jpg") no-repeat center;
+    background-size: cover;
+}
+#box1.box{
+ justify-content: flex-start;
+}
+@media screen and (max-width:768px) {
+    #box1.box{
+     justify-content: center;
+    } 
+}
+/* 他頁の画像指定 */
+#box2{
+    background:url("../img/_Mikosan.jpg") no-repeat center;
+    background-size: cover;
+}
+#box3{
+    background:url("../img/_River_Ship.jpg") no-repeat center;
+    background-size: cover;
+}
+#box4{
+    background:url("../img/_Iidabashi.jpg") no-repeat center;
+    background-size: cover;
+}
+#box5{
+    background:url("../img/_ManyFlowers.jpg") no-repeat center;
+    background-size: cover;
+}
+#box6{
+	background:url("../img/_BarAtNight.jpg") no-repeat center;
+	background-size: cover;
+}
+
+/* 以下、ページネーション設定群 */
+.pagination {
+	position:fixed;
+	right:20px;
+	top: 50%;
+  	transform: translateY(-50%);
+	font-size:1em;
+	z-index: 10;
+	list-style: none;
+}
+.pagination a {
+	display:block;
+	height:20px;
+	margin-bottom:5px;
+	color:#fff;
+	position:relative;
+	padding:4px;
+}
+.pagination a.active:after {
+	box-shadow:inset 0 0 0 5px;
+}
+.pagination a .hover-text {
+	position:absolute;
+	right:15px;
+	top:0;
+	opacity:0;
+	-webkit-transition: opacity 0.5s ease;
+	transition: opacity 0.5s ease;
+	padding-right: 15px;
+}
+.pagination a:hover .hover-text {
+	opacity: 1;
+}
+.pagination a:after {
+	-webkit-transition:box-shadow 0.5s ease;
+	transition:box-shadow 0.5s ease;
+	width:10px;
+	height:10px;
+	display: block;
+	border:1px solid;
+	border-radius:50%;
+	content:'';
+	position: absolute;
+	margin:auto;
+	top:0;
+	right:3px;
+	bottom:0;
+}
+@media screen and (max-width:768px) {
+	.pagination a .hover-text{
+		display: none;
+	}	
+}
